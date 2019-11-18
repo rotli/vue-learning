@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+需求：让p标签动态显示文本输入框的内容-->
+<div id="app">
+    <input type="text" v-model="username">
+    <p>Hello {{username}}</p>
+</div>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+    const vm = new Vue({
+        el: '#app',
+        data:{
+            username:'leeyaonan'
+        }
+    })
+</script>
+
+</body>
+</html>
