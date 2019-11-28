@@ -10,13 +10,17 @@
 <div id="app">
     <input type="text" v-model="username">
     <p>Hello {{username}}</p>
+    <input type="text" v-model="password">
+    <p>Your Password is {{password}}</p>
+    <p>{{username}}, {{password}}</p>
 </div>
 <script type="text/javascript" src="../js/vue.js"></script>
 <script type="text/javascript">
     const vm = new Vue({
         el: '#app',
         data:{
-            username:'leeyaonan'
+            username:'leeyaonan',
+            password:'123456'
         }
     })
 </script>
