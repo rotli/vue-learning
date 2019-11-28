@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--需求：
+姓：A
+名：B
+姓名1(单向)：A B
+姓名2(单向)A B
+姓名3(双向)A B
+-->
+<div id="demo">
+    姓：<input type="text" placeholder="FirstName" v-model="firstName"><br>
+    名：<input type="text" placeholder="LastName" v-model="lastName"><br>
+    姓名1（单向）：<input type="text" placeholder="FullName1" v-model="fullName1"><br>
+    姓名2（单向）：<input type="text" placeholder="FullName2" v-model="fullName2"><br>
+    姓名3（双向）：<input type="text" placeholder="FullName3" v-model="fullName3"><br>
+</div>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+    const vm = new Vue({
+        el: '#demo',
+        data: {
+            firstName:'A',
+            lastName:'B',
+            fullName2:'A B'
+        },
+        computed: {
+            fullName1:{
+                console.log('fullName1()'),
+                return this.firstName + this.lastName
+            },
+            fullName3:{
+                get(){
+                    return this.firstName + ' ' + this.lastName
+                },
+                set(value){
+                    const names = value.split(' ')
+                    this.firstName = names[0]
+                    this.lastName = names[1]
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -12,7 +12,12 @@
     <p v-text="msg2"></p>
     <p v-html="msg2"></p>
     <h2>2. 强制数据绑定</h2>
+    <img src="imgUrl">
+    <img v-bind:src="imgUrl"/>
+    <img :src="imgUrl"/>
     <h2>3. 绑定事件监听</h2>
+    <buttom v-on:click="test">test1</buttom>
+    <button @click="test2(msg)">test2</button>
 </div>
 
 <script type="text/javascript" src="../js/vue.js"></script>
@@ -21,11 +26,16 @@
         el:'#app',
         data:{
             msg:'I Will be Back!',
-            msg2:'<a href="https://cn.vuejs.org/v2/guide/installation.html#%E7%9B%B4%E6%8E%A5%E7%94%A8-lt-script-gt-%E5%BC%95%E5%85%A5">I am leeyaonan</a>',
+            msg2:'<a href="https://static001.geekbang.org/resource/image/82/6c/82603a1e0a60e2dace0ab2e05a6b316c.jpg">I am leeyaonan</a>',
             imgUrl:'https://upload-images.jianshu.io/upload_images/9811187-24e2c533a74e8726.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp'
         },
         methods:{
-
+            test1(){
+                alert('hehe!')
+            },
+            test2(content){
+                alert(content)
+            }
         }
     })
 </script>
