@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" placeholder="你的名字" v-model="name">
+    <!--要用v-model而不是v-bind-->
+    <p>Hello {{name}}</p>
+
+    <p>现在的时间是{{date}}</p>
+
+    <span v-html="link"></span>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        //el绑定div的id，也就是模块的id，其实是指定一个页面中已经存在的DOM元素，来挂载Vue实例，可以是HTMLElement 也可以是CSS选择器
+        //'#app'的写法同document.getElementById('app')
+        data:{
+            name:'aaa',
+            a:2,
+            date:new Date(),
+            link:'<a href="#">这是一个链接</a>'
+        },
+        mounted: function f1 () {
+            var _this = this;
+            this.timer = setInterval(function() {
+                _this.date = new Date();
+            }, 1000);
+        },
+        beforeDestroy:function f2 () {
+            if (this.timer) {
+                clearInterval(this.timer);
+            }
+        }
+
+    })
+
+    console.log(this.a);
+</script>
+</body>
+</html>
